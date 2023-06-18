@@ -45,9 +45,11 @@ const Register = ({ history }) => {
     }else if (emailExists) {
       // Display an error message or handle the duplicate email case
       toast.error("El correo ya esta en uso. Por favor, ingrese otro.");
+      setEmail("");
     } else if (usernameExists) {
       // Display an error message or handle the duplicate username case
       toast.error("El nombre de usuario ya esta en uso. Por favor, ingrese otro.");
+      setUsername("");
     } else {
       const newUser = { username, email, password };
       const updatedUsers = [...existingUsers, newUser];

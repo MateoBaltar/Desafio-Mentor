@@ -10,9 +10,7 @@ const Index = () => {
       <div className="col s12 m6 offset-m3">
         <div className="card">
           <div className="card-content">
-            <h3>
-              Bienvenid@ al desafio mentor experto.
-            </h3>
+            <h3>Bienvenid@ al desafio mentor experto.</h3>
             {loggedInUser && (
               <h6>Sesion iniciada como {loggedInUser.username}</h6>
             )}
@@ -45,6 +43,15 @@ const Index = () => {
                 Cerrar Sesion
               </button>
             )}
+            <p>
+              Codigo fuente:{" "}
+              <a
+                href="https://github.com/MateoBaltar/Desafio-Mentor"
+                target="_blank"
+              >
+                Github
+              </a>
+            </p>
           </div>
         </div>
       </div>
