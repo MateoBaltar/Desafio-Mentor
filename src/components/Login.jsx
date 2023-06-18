@@ -18,7 +18,7 @@ const Login = () => {
 
   useEffect(() => {
     if (loggedInUser) {
-      toast.error("You're already logged in"); // Muestra la notificacion de error
+      toast.error("Ya hay una sesion iniciada"); // Muestra la notificacion de error
       navigate("/"); // Redirecciona al inicio
     }
   }, [loggedInUser, navigate]);

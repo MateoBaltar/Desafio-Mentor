@@ -20,7 +20,7 @@ const Register = ({ history }) => {
 
   useEffect(() => {
     if (loggedInUser) {
-      toast.error("You're already logged in"); // Display toast notification
+      toast.error("Ya hay una sesion iniciada"); // Display toast notification
       navigate("/"); // Redirect to the index page
     }
   }, [loggedInUser, navigate]);
@@ -44,10 +44,10 @@ const Register = ({ history }) => {
       setPassword2("");
     }else if (emailExists) {
       // Display an error message or handle the duplicate email case
-      toast.error("Email already exists. Please choose a different email.");
+      toast.error("El correo ya esta en uso. Por favor, ingrese otro.");
     } else if (usernameExists) {
       // Display an error message or handle the duplicate username case
-      toast.error("Username already exists. Please choose a different username.");
+      toast.error("El nombre de usuario ya esta en uso. Por favor, ingrese otro.");
     } else {
       const newUser = { username, email, password };
       const updatedUsers = [...existingUsers, newUser];

@@ -11,7 +11,7 @@ const Index = () => {
         <div className="card">
           <div className="card-content">
             <h3>
-              Bienvenido al desafio mentor experto.
+              Bienvenid@ al desafio mentor experto.
             </h3>
             {loggedInUser && (
               <h6>Sesion iniciada como {loggedInUser.username}</h6>
@@ -39,7 +39,6 @@ const Index = () => {
             )}
             {loggedInUser && (
               <button
-                href=""
                 onClick={handleLogout}
                 className="waves-effect waves-light btn"
               >

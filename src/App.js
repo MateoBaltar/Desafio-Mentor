@@ -5,9 +5,10 @@ import Index from "./components/Index";
 import Register from "./components/Register";
 import { AuthProvider } from "./AuthContext";
 import { ToastContainer } from "react-toastify";
+import NotFound from "./components/NotFound";
 
 function App() {
-  return (
+  return ( 
     <div className="App">
       <AuthProvider>
         <Navbar />
@@ -18,6 +19,7 @@ function App() {
             path="/register"
             Component={(props) => <Register {...props} />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <ToastContainer
           position="top-center"
