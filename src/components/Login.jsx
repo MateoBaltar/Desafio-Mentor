@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthContext";
 
 const Login = () => {
-
   React.useEffect(() => {
     M.AutoInit();
   }, []);
 
-  const  {handleLogin, loggedInUser} = useContext(AuthContext);
+  const { handleLogin, loggedInUser } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -35,14 +35,20 @@ const Login = () => {
     if (user) {
       // Login exitoso
       localStorage.setItem("loggedInUser", JSON.stringify(user));
-      handleLogin(user)
+      handleLogin(user);
       navigate("/");
     } else {
       // Login fallido
-      toast.error("Error al iniciar sesion, nombre de usuario o contraseña invalida. Intente nuevamente.");
+      toast.error(
+        "Error al iniciar sesion, nombre de usuario o contraseña invalida. Intente nuevamente."
+      );
       setEmail("");
       setPassword("");
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -53,6 +59,7 @@ const Login = () => {
             <span className="card-title">Iniciar sesion</span>
             <form onSubmit={handleLoginFormSubmit}>
               <div className="input-field">
+                <i class="material-icons prefix">email</i>
                 <input
                   type="email"
                   id="email"
@@ -63,8 +70,9 @@ const Login = () => {
                 <label htmlFor="email">Email</label>
               </div>
               <div className="input-field">
+                <i class="material-icons prefix">lock</i>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -72,6 +80,13 @@ const Login = () => {
                 />
                 <label htmlFor="password">Contraseña</label>
               </div>
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                class="material-icons password-visibility"
+              >
+                {showPassword ? "lock_open" : "lock_outline"}
+              </button>
               <button type="submit" className="btn waves-effect waves-light">
                 Iniciar sesion
               </button>

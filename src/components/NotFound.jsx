@@ -8,7 +8,7 @@ const NotFound = () => {
       <h1>404 - Página no encontrada</h1>
       <p>La página que estás buscando no existe.</p>
       <Link to="/">
-        <button className="waves-effect waves-light btn back-home">Inicio</button>
+        <button className="waves-effect waves-light btn-large back-home">Inicio</button>
       </Link>
     </div>
   );
